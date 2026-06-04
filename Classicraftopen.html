@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Framed - classic.minecraft.net</title>
+  <style>
+    /* Simple reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: #fff;
+      font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* container covers the whole viewport */
+    #frame-container {
+      position: fixed;
+      inset: 0; /* top:0; right:0; bottom:0; left:0; */
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      background: #000; /* fallback while iframe loads */
+      overflow: hidden;
+    }
+
+    /* iframe fills the container with no borders */
+    #game-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <!-- container holds the iframe to ensure it fills the viewport -->
+  <div id="frame-container">
+    <iframe
+      id="game-frame"
+      src="https://classic.minecraft.net/"
+      frameborder="0"
+      allowfullscreen
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+      title="classic.minecraft.net"
+    ></iframe>
+  </div>
+
+  <!-- Minimal fallback -->
+  <noscript>
+    <p style="padding:16px; text-align:center;">
+      This page requires JavaScript to properly size the iframe. Please enable JavaScript.
+    </p>
+  </noscript>
+</body>
+</html>
